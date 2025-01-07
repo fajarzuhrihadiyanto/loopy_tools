@@ -344,7 +344,8 @@ function Model(loopy){
 				y: node[2],
 				init: node[3],
 				label: decodeURIComponent(node[4]),
-				hue: node[5]
+				hue: node[5],
+				description: decodeURIComponent(node[6] || '')
 			});
 		}
 
@@ -355,7 +356,8 @@ function Model(loopy){
 				from: edge[0],
 				to: edge[1],
 				arc: edge[2],
-				strength: edge[3]
+				strength: edge[3],
+				description: edge[5] || ''
 			};
 			if(edge[4]) edgeConfig.rotation=edge[4];
 			self.addEdge(edgeConfig);

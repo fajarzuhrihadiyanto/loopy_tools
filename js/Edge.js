@@ -25,7 +25,8 @@ function Edge(model, config){
 		to: _makeErrorFunc("CAN'T LEAVE 'TO' BLANK"),
 		arc: 100,
 		rotation: 0,
-		strength: Edge.defaultStrength
+		strength: Edge.defaultStrength,
+		description: ''
 	});
 
 	// Get my NODES

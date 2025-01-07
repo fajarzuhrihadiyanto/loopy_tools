@@ -36,7 +36,8 @@ function Node(model, config){
 		init: Node.defaultValue, // initial value!
 		label: "?",
 		hue: Node.defaultHue,
-		radius: Node.DEFAULT_RADIUS
+		radius: Node.DEFAULT_RADIUS,
+		description: ''
 	});
 
 	// Value: from 0 to 1

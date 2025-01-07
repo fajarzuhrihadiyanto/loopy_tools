@@ -82,9 +82,41 @@
 <script src="js/Eraser.js"></script>
 <script src="js/Labeller.js"></script>
 
+<!-- Socket -->
+<script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
+
 <!-- Start it -->
 <script>
 window.onload = function(){
 	window.loopy = new Loopy();
 };
+window.socket = io('https://bigbrain-loopy-socket-gateway.qtn.ai/');
+subscribe('sync_data', () => {
+
+	const nodes = {}
+	const edges = {}
+	const labels = {}
+	window.loopy.model.nodes.map(node => {
+		nodes[node.id] = {
+			x: node.x,
+			y: node.y,
+			init: node.init,
+			hue: node.hue,
+		}
+		labels[node.id] = {
+			text: node.label,
+			description: node.description || ''
+		}
+	})
+	window.loopy.model.edges.map((edge, index) => {
+		edges[index] = {
+			from: edge.config.from,
+			to: edge.config.to,
+			weight: edge.config.strength,
+			description: edge.config.description || ''
+		}
+	})
+	
+	window.socket.emit('loopy_data_entrance', { nodes, edges, labels })
+})
 </script>
