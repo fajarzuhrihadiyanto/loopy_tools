@@ -357,7 +357,8 @@ function Model(loopy){
 				to: edge[1],
 				arc: edge[2],
 				strength: edge[3],
-				description: edge[5] || ''
+				description: edge[5] || '',
+				id: node[6]
 			};
 			if(edge[4]) edgeConfig.rotation=edge[4];
 			self.addEdge(edgeConfig);

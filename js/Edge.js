@@ -26,7 +26,8 @@ function Edge(model, config){
 		arc: 100,
 		rotation: 0,
 		strength: Edge.defaultStrength,
-		description: ''
+		description: '',
+		id: Edge._getUID()
 	});
 
 	// Get my NODES
@@ -517,3 +518,13 @@ function Edge(model, config){
 
 
 }
+
+////////////////////////////
+// Unique ID identifiers! //
+////////////////////////////
+
+Edge._UID = 0;
+Edge._getUID = function(){
+	Edge._UID++;
+	return Edge._UID;
+};
