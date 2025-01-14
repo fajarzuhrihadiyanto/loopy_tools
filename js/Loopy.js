@@ -210,6 +210,14 @@ function Loopy(config){
 	self.toolbar.dom.style.display = "none";
 	self.sidebar.dom.style.display = "none";
 
+	// Fullscreen canvas
+	document.getElementById("canvasses").setAttribute("fullscreen","yes");
+	self.playbar.dom.setAttribute("fullscreen","yes");
+	publish("resize");
+
+	// Autoplay!
+	self.setMode(Loopy.MODE_PLAY);
+
 	if(self.embedded){
 
 		// If *NO UI AT ALL*
@@ -219,19 +227,12 @@ function Loopy(config){
 			self.playbar.dom.style.display = "none";
 		}
 
-		// Fullscreen canvas
-		document.getElementById("canvasses").setAttribute("fullscreen","yes");
-		self.playbar.dom.setAttribute("fullscreen","yes");
-		publish("resize");
 
 		// Center & SCALE The Model
 		self.model.center(true);
 		subscribe("resize",function(){
 			self.model.center(true);
 		});
-
-		// Autoplay!
-		self.setMode(Loopy.MODE_PLAY);
 
 		// Also, HACK: auto signal
 		var signal = _getParameterByName("signal");
