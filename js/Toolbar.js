@@ -48,7 +48,7 @@ function Toolbar(loopy){
 	};
 
 	// Set Tool
-	self.currentTool = "ink";
+	self.currentTool = "drag";
 	self.setTool = function(tool){
 		self.currentTool = tool;
 		var name = "TOOL_"+tool.toUpperCase();
@@ -57,20 +57,20 @@ function Toolbar(loopy){
 	};
 
 	// Populate those buttons!
-	self.addButton({
-		id: "ink",
-		tooltip: "PE(N)CIL",
-		callback: function(){
-			self.setTool("ink");
-		}
-	});
-	self.addButton({
-		id: "label",
-		tooltip: "(T)EXT",
-		callback: function(){
-			self.setTool("label");
-		}
-	});
+	// self.addButton({
+	// 	id: "ink",
+	// 	tooltip: "PE(N)CIL",
+	// 	callback: function(){
+	// 		self.setTool("ink");
+	// 	}
+	// });
+	// self.addButton({
+	// 	id: "label",
+	// 	tooltip: "(T)EXT",
+	// 	callback: function(){
+	// 		self.setTool("label");
+	// 	}
+	// });
 	self.addButton({
 		id: "drag",
 		tooltip: "MO(V)E",
@@ -78,16 +78,16 @@ function Toolbar(loopy){
 			self.setTool("drag");
 		}
 	});
-	self.addButton({
-		id: "erase",
-		tooltip: "(E)RASE",
-		callback: function(){
-			self.setTool("erase");
-		}
-	});
+	// self.addButton({
+	// 	id: "erase",
+	// 	tooltip: "(E)RASE",
+	// 	callback: function(){
+	// 		self.setTool("erase");
+	// 	}
+	// });
 
 	// Select button
-	buttonsByID.ink.callback();
+	buttonsByID.drag.callback();
 
 	// Hide & Show
 

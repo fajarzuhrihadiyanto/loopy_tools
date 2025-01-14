@@ -45,11 +45,11 @@ function Loopy(config){
 
 	// Tools
 	self.toolbar = new Toolbar(self);
-	self.tool = Loopy.TOOL_INK;
-	self.ink = new Ink(self);
+	self.tool = Loopy.TOOL_DRAG;
+	// self.ink = new Ink(self);
 	self.drag = new Dragger(self);
-	self.erase = new Eraser(self);
-	self.label = new Labeller(self);
+	// self.erase = new Eraser(self);
+	// self.label = new Labeller(self);
 
 	// Play Controls
 	self.playbar = new PlayControls(self);
@@ -206,11 +206,11 @@ function Loopy(config){
 
 	self.init();
 
-	if(self.embedded){
+	// Hide all that UI
+	self.toolbar.dom.style.display = "none";
+	self.sidebar.dom.style.display = "none";
 
-		// Hide all that UI
-		self.toolbar.dom.style.display = "none";
-		self.sidebar.dom.style.display = "none";
+	if(self.embedded){
 
 		// If *NO UI AT ALL*
 		var noUI = !!parseInt(_getParameterByName("no_ui")); // force to Boolean
